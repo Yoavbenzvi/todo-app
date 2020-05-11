@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputField component expect to render InputField component 1`] = `
+<div
+  className="flex items-center justify-between relative"
+>
+  <input
+    className="p-4 pr-20 border-t-2 border-green-500 rounded bg-gray-900 text-white w-full shadow-inner outline-none\\""
+    placeholder="Add a new task..."
+    type="text"
+  />
+  <button
+    className="text-green-400 hover:text-green-300 bg-gray-900 font-semibold py-2 px-4 absolute right-0 mr-2 focus:outline-none"
+    type="button"
+  >
+    ADD
+  </button>
+</div>
+`;

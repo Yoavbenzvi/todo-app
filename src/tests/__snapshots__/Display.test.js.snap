@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Display component expect to render Display component 1`] = `
+<div
+  className="h-64"
+>
+  <ul
+    className="m-0 my-4 p-0 list-none w-full"
+  >
+    <Task />
+  </ul>
+  <span
+    className="text-center inline-block w-full p-4 text-gray-600 text-lg"
+  >
+    Add a new item to get started!
+  </span>
+</div>
+`;
