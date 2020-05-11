@@ -1,12 +1,11 @@
 import React from 'react';
 
-const InputField = ({ addTask, handleInputChange }) => {
-	//should change to smart component/controlled component
-
+const InputField = ({ addTask, handleInputChange, inputValue }) => {
 	return(
 		<div className='flex items-center justify-between relative'>
 			<input 
 				onChange={handleInputChange}
+				value={inputValue}
 				placeholder='Add a new task...'
 				type='text'
 				className='p-4 pr-20 border-t-2 border-green-500 rounded bg-gray-900 text-white w-full shadow-inner outline-none"'

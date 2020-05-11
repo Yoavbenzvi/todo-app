@@ -6,40 +6,35 @@ import ControlPanel from '../components/ControlPanel';
 class App extends React.Component {
 
    state = {
-      newTask: null,
+      newTask: '',
       allTasks: [],
-      displayedTasks: [],
+      showAll: true,
    }
 
    clearDisplay = () => {
-      // this.setState({newTask: null, tasks: []})
-      console.log('clearDisplay')
+      this.setState({
+         newTask: '', 
+         allTasks: [], 
+         showAll: true,
+      })
    }
 
    handleInputChange = (e) => {
-      // this.setState({newTask: e.target.value})
-      console.log('handleInputChange')
+      this.setState({newTask: e.target.value})
    }
 
    addTask = () => {
-      // let newTasksArray = [...this.state.allTasks];
-      // newTasksArray.push({text: this.state.newTask, status: true})
-
-      // this.setState({newTasksArray})
-      console.log('addTask')
+      if(this.state.newTask){
+         let newTasksArray = [...this.state.allTasks, {text: this.state.newTask, status: true}];
+         this.setState({
+            allTasks: newTasksArray, 
+            newTask: ''
+         })
+      }
    }
 
-   filterTasksArray = (all) => {
-      // if(all) {
-      //    const displayedTasks = [...this.state.allTasks]
-
-      //    this.setState({displayedTasks})
-      // } else {
-      //    const displayedTasks = this.state.allTasks.filter(/*add filter method*/)
-
-      //    this.setState({displayedTasks})
-      // }
-      console.log('filterTasksArray')
+   toggleShow = (boolean) => {
+      this.setState({showAll: boolean})
    }
 
    render() {
@@ -49,9 +44,13 @@ class App extends React.Component {
                <h1 className='uppercase text-2xl block font-bold py-6 text-gray-400 tracking-widest text-center'>
                   Todo List
                </h1>
-               <InputField addTask={this.addTask} handleInputChange={this.handleInputChange}/>
-               <Display tasks={this.state.displayedTasks}/>
-               <ControlPanel clearDisplay={this.clearDisplay} filterTasksArray={this.filterTasksArray}/>
+               <InputField 
+                  addTask={this.addTask} 
+                  handleInputChange={this.handleInputChange}
+                  inputValue={this.state.newTask}
+               />
+               <Display showAll={this.state.showAll} tasks={this.state.allTasks}/>
+               <ControlPanel clearDisplay={this.clearDisplay} showAll={this.state.showAll} toggleShow={this.toggleShow}/>
             </div>
          </div>
       );   

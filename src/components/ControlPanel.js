@@ -1,20 +1,20 @@
 import React from 'react';
 
-const ControlPanel = ({ filterTasksArray, clearDisplay }) => {
+const ControlPanel = ({ showAll, toggleShow, clearDisplay }) => {
 	return(
 		<div className='flex py-4 border-t border-gray-900 justify-between'>
 			<div>
 				<button
 					id='all'
 					className="text-xs mr-3 hover:underline text-gray-500 focus:outline-none text-green-500 font-bold"
-					onClick={() => filterTasksArray(true)}
+					onClick={() => toggleShow(true)}
 				>
 					ALL
 				</button>
 				<button
 					id='active'
 					className='text-xs mr-3 hover:underline text-gray-500 focus:outline-none'
-					onClick={() => filterTasksArray(false)}
+					onClick={() => toggleShow(false)}
 				>
 					ACTIVE
 				</button>
