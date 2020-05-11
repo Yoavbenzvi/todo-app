@@ -6,9 +6,6 @@
 		"@testing-library/jest-dom": "^4.2.4",
 		"@testing-library/react": "^9.5.0",
 		"@testing-library/user-event": "^7.2.1",
-		"enzyme": "^3.11.0",
-		"enzyme-adapter-react-16": "^1.15.2",
-		"enzyme-to-json": "^3.4.4",
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1",
 		"react-scripts": "3.4.1"
@@ -21,7 +18,7 @@
 	"scripts": {
 		"start": "npm run watch:css && react-scripts start",
 		"build": "npm run build:css && react-scripts build",
-		"test": "jest --watch",
+		"test": "react-scripts test --env=jsdom",
 		"eject": "react-scripts eject",
 		"build:css": "postcss src/assets/tailwind.css -o src/assets/main.css",
 		"watch:css": "postcss src/assets/tailwind.css -o src/assets/main.css"
@@ -43,6 +40,9 @@
 	},
 	"devDependencies": {
 		"autoprefixer": "^9.7.6",
+		"enzyme": "^3.11.0",
+		"enzyme-adapter-react-16": "^1.15.2",
+		"enzyme-to-json": "^3.4.4",
 		"postcss-cli": "^7.1.1",
 		"tailwindcss": "^1.4.5"
 	}
