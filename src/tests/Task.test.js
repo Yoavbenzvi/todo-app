@@ -10,17 +10,10 @@ describe('Task component', () => {
 	});
 
 	it('test className', () => {
-		const wrapper = shallow(<Task status={true}/>)
-		const mockClass = 'p-5 cursor-pointer border-l-8 border-orange-500 text-white';
+		const wrapper = shallow(<Task status={true}/>);
+		const mockClass = 'm-1 p-5 cursor-pointer border-l-8 border-orange-500 text-white';
 
-		expect(shallow.find({id: 'task'}).hasClass(mockClass))
-	})	
-
-	it('test text', () => {
-		const mockText = 'test'
-		const wrapper = shallow(<Task text={mockText}/>)
-
-		expect(shallow.find({id: 'text'}).text()).toBe('test')
+		expect(wrapper.find({id: 'task'}).hasClass(mockClass)).toEqual(true)
 	})	
 })
 

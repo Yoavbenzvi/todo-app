@@ -30,7 +30,6 @@ const Display = ({ tasks, showAll }) => {
 	return(
 		<div className='h-64 overflow-y-scroll overflow-x-hidden'>
 			<ul
-				id='list'
 				className='m-0 my-4 p-0 list-none w-full'
 			>
 				{renderList()}

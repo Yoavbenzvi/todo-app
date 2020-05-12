@@ -11,7 +11,7 @@ describe('ControlPanel component', () => {
 
 	it("test click events", () => {
 		const mockClick = jest.fn()
-		const wrapper = shallow(<ControlPanel filterTasksArray={mockClick} clearDisplay={mockClick}/>)
+		const wrapper = shallow(<ControlPanel toggleShow={mockClick} clearDisplay={mockClick}/>)
 
 		wrapper.find({id: 'all'}).simulate('click')
 		wrapper.find({id: 'active'}).simulate('click')

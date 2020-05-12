@@ -2,8 +2,7 @@
 
 exports[`Task component expect to render Task component 1`] = `
 <li
-  className="p-5 cursor-pointer border-l-8 border-orange-500 text-white"
->
-  complete
-</li>
+  className="m-1 p-5 cursor-pointer border-l-8 border-green-400 text-white"
+  id="task"
+/>
 `;
