@@ -4,12 +4,16 @@ import Display from '../components/Display';
 import ControlPanel from '../components/ControlPanel';
 
 class App extends React.Component {
+   constructor() {
+      super()
 
-   state = {
-      newTask: '',
-      allTasks: [],
-      showAll: true,
+      this.state = {
+         newTask: '',
+         allTasks: [],
+         showAll: true,
+      }
    }
+
 
    clearDisplay = () => {
       this.setState({
@@ -37,6 +41,24 @@ class App extends React.Component {
       this.setState({showAll: boolean})
    }
 
+   toggleTaskStatus = (index) => {
+      let newTasksArray = [...this.state.allTasks];
+      let changedTask = {...this.state.allTasks[index]};
+      changedTask.status === true ?
+         changedTask.status = false
+         :
+         changedTask.status = true;
+      newTasksArray[index] = changedTask;
+
+      this.setState({allTasks: newTasksArray})
+   }
+
+   deleteTask = (index) => {
+      let newTasksArray = [...this.state.allTasks];
+      newTasksArray.splice(index, 1);
+      this.setState({allTasks: newTasksArray})
+   }
+
    render() {
       return (
          <div className='bg-gray-800 text-white min-h-screen'>
@@ -49,7 +71,12 @@ class App extends React.Component {
                   handleInputChange={this.handleInputChange}
                   inputValue={this.state.newTask}
                />
-               <Display showAll={this.state.showAll} tasks={this.state.allTasks}/>
+               <Display 
+                  toggleTaskStatus={this.toggleTaskStatus} 
+                  showAll={this.state.showAll} 
+                  tasks={this.state.allTasks}
+                  deleteTask={this.deleteTask}
+               />
                <ControlPanel clearDisplay={this.clearDisplay} showAll={this.state.showAll} toggleShow={this.toggleShow}/>
             </div>
          </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import Task from './Task';
 
-const Display = ({ tasks, showAll }) => {
+const Display = ({ tasks, showAll, toggleTaskStatus, deleteTask }) => {
 
 	const renderText = () => {
 		return tasks.length <= 0 ?
@@ -13,22 +13,37 @@ const Display = ({ tasks, showAll }) => {
 	}
 
 	const renderList = () => {
-		const allTasks = tasks.map((task, i) => {
-			return <Task 
-				status={task.status}
-				text={task.text}
-				key={i}
-			/>
-		})
+		let allTasks;
 
-		return showAll ?
-			allTasks
-			:
-			allTasks.filter(task => task.status === false)
+		if(showAll) {
+			allTasks = tasks.map((task, i) => {
+				return <Task 
+					status={task.status}
+					text={task.text}
+					toggleTaskStatus={toggleTaskStatus}
+					index={i}
+					key={i}
+					deleteTask={deleteTask}
+				/>
+			})
+		} else {
+			allTasks = tasks.filter(task => task.status).map((task, i) => {
+				return <Task 
+					status={task.status}
+					text={task.text}
+					toggleTaskStatus={toggleTaskStatus}
+					index={i}
+					key={i}
+					deleteTask={deleteTask}
+				/>
+			})
+		}
+
+		return allTasks
 	}
 
 	return(
-		<div className='h-64 overflow-y-scroll overflow-x-hidden'>
+		<div className='h-64 overflow-y-scroll'>
 			<ul
 				className='m-0 my-4 p-0 list-none w-full'
 			>
