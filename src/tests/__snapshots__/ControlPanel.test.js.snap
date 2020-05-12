@@ -6,14 +6,14 @@ exports[`ControlPanel component expect to render ControlPanel component 1`] = `
 >
   <div>
     <button
-      className="text-xs mr-3 hover:underline text-gray-500 focus:outline-none text-green-500 font-bold"
+      className="text-xs mr-3 hover:underline text-gray-500 focus:outline-none"
       id="all"
       onClick={[Function]}
     >
       ALL
     </button>
     <button
-      className="text-xs mr-3 hover:underline text-gray-500 focus:outline-none"
+      className="text-xs mr-3 hover:underline text-gray-500 focus:outline-none text-green-500 font-bold"
       id="active"
       onClick={[Function]}
     >

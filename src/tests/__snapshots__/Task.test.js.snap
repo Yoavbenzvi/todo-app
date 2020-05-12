@@ -2,7 +2,18 @@
 
 exports[`Task component expect to render Task component 1`] = `
 <li
-  className="m-1 p-5 cursor-pointer border-l-8 border-green-400 text-white"
+  className="hover:bg-gray-700 duration-300 transition m-1 p-5 cursor-pointer border-l-8 border-green-400 text-gray-500 flex justify-between"
   id="task"
-/>
+  onClick={[Function]}
+>
+  <p
+    className="line-through"
+  />
+  <button
+    className="text-red-500 text-xl font-bold no-underline"
+    onClick={[Function]}
+  >
+    X
+  </button>
+</li>
 `;

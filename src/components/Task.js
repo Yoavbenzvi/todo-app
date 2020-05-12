@@ -1,8 +1,8 @@
 import React from 'react';
 
 const Task = ({ text, status, toggleTaskStatus, index, deleteTask }) => {
-	const active = 'm-1 p-5 cursor-pointer border-l-8 border-orange-500 text-white flex justify-between'
-	const disabled = 'm-1 p-5 cursor-pointer border-l-8 border-green-400 text-gray-500 flex justify-between'
+	const active = 'hover:bg-gray-700 duration-300 transition m-1 p-5 cursor-pointer border-l-8 border-orange-500 text-white flex justify-between'
+	const disabled = 'hover:bg-gray-700 duration-300 transition m-1 p-5 cursor-pointer border-l-8 border-green-400 text-gray-500 flex justify-between'
 
 	const deleteSelf = (e) => {
 		deleteTask(index)

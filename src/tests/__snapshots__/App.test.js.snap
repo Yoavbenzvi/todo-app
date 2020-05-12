@@ -18,8 +18,10 @@ exports[`App component expect to shallow render App component 1`] = `
       inputValue=""
     />
     <Display
+      deleteTask={[Function]}
       showAll={true}
       tasks={Array []}
+      toggleTaskStatus={[Function]}
     />
     <ControlPanel
       clearDisplay={[Function]}

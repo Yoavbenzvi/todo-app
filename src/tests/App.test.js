@@ -8,7 +8,7 @@ describe('App component', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 
-	it('test clearDisplay method', () => {
+	it('clearDisplay', () => {
 		const mockState = {
 			newTask: 'random text',
 			allTasks: [{text: 'fake task', status: true}],
@@ -18,10 +18,14 @@ describe('App component', () => {
 		const wrapper = shallow(<App {...mockState}/>)
 		const instance = wrapper.instance()
 		instance.clearDisplay();
-		expect(wrapper.state()).toEqual({newTask: '', allTasks: [], showAll: true})
+		expect(wrapper.state()).toEqual({
+			newTask: '', 
+			allTasks: [], 
+			showAll: true
+		})
 	})
 
-	it('test handleInputChange method', () => {
+	it('handleInputChange', () => {
 		const mockState = {
 			newTask: 'random text',
 			allTasks: [],
@@ -35,10 +39,14 @@ describe('App component', () => {
 		const instance = wrapper.instance()
 
 		instance.handleInputChange(mockEvent);
-		expect(wrapper.state()).toEqual({newTask: 'event text', 	allTasks: [], showAll: true})
+		expect(wrapper.state()).toEqual({
+			newTask: 'event text', 	
+			allTasks: [], 
+			showAll: true
+		})
 	})
 
-	it('test addTask method', () => {
+	it('addTask', () => {
 		const mockState = {
 			newTask: 'test',
 			allTasks: [],
@@ -50,10 +58,42 @@ describe('App component', () => {
 
 		instance.addTask()
 
-		expect(wrapper.state().allTasks[0]).toEqual({text: 'test', status: true})
+		expect(wrapper.state().allTasks).toEqual([{status: true, text: 'test'}])
 	})
 
-	it('test toggleShow method', () => {
+	it('toggleTaskStatus', () => {
+		const mockState = {
+			newTask: '',
+			allTasks: [{status:true, text:'test'}],
+			showAll: true
+		}
+
+		const wrapper = shallow(<App {...mockState}/>)
+		const instance = wrapper.instance()
+
+		instance.toggleTaskStatus(0);
+		expect(wrapper.state().allTasks[0].status).toBe(false)
+	})
+
+	it('deleteTask', () => {
+		const mockState = {
+			newTask: '',
+			allTasks: [{status:true, text:'test'}],
+			showAll: true
+		}
+
+		const wrapper = shallow(<App {...mockState}/>)
+		const instance = wrapper.instance()
+
+		instance.deleteTask(0);
+		expect(wrapper.state()).toEqual({
+			newTask: '',
+			allTasks: [],
+			showAll: true
+		})
+	})
+
+	it('toggleShow', () => {
 		const mockState = {
 			newTask: '',
 			allTasks: [],
@@ -64,6 +104,10 @@ describe('App component', () => {
 		const instance = wrapper.instance()
 
 		instance.toggleShow(false);
-		expect(wrapper.state()).toEqual({newTask: '', 	allTasks: [], showAll: false})
+		expect(wrapper.state()).toEqual({
+			newTask: '', 	
+			allTasks: [], 
+			showAll: false
+		})
 	})
 })
